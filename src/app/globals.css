@@ -1,0 +1,114 @@
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1b1b1f;
+  --muted: #6b6b76;
+  --border: #e4e4e0;
+  --accent: #4f46e5;
+  --accent-text: #ffffff;
+  --danger: #c2410c;
+  --radius: 10px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111114;
+    --surface: #1a1a1f;
+    --text: #ececf0;
+    --muted: #9a9aa6;
+    --border: #2c2c33;
+    --accent: #818cf8;
+    --accent-text: #0b0b10;
+    --danger: #fb923c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 0.25rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.1rem; margin: 0 0 0.25rem; }
+a { color: var(--accent); }
+
+.muted { color: var(--muted); margin: 0; }
+.small { font-size: 0.85rem; }
+.row { display: flex; gap: 0.75rem; align-items: center; }
+.brand { font-weight: 700; letter-spacing: -0.02em; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: var(--accent-text); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn:disabled { opacity: 0.6; cursor: progress; }
+
+/* Auth */
+.auth { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
+.auth .card { width: 100%; max-width: 380px; display: grid; gap: 1rem; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font-weight: 600; font-size: 0.9rem; }
+.field input {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+.field input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.field input[aria-invalid="true"] { border-color: var(--danger); }
+.field-error { color: var(--danger); font-size: 0.85rem; margin: 0; }
+.alert {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+/* App shell */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.content { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem; display: grid; gap: 1.25rem; }
+.empty { text-align: center; padding: 3rem 1.5rem; }
+
+/* Landing */
+.hero {
+  min-height: 100vh;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+}
+.hero h1 { font-size: 2.4rem; line-height: 1.15; }
